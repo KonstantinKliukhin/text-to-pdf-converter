@@ -1,7 +1,9 @@
 # Text to PDF converter
 
+## [Priview link](https://text-to-pdf-converter-xi.vercel.app/)
+
 ## Notice
-This repository is built based on (Next FSD template)[https://github.com/KonstantinKliukhin/next-fsd-template].
+This repository is built based on [Next FSD template](https://github.com/KonstantinKliukhin/next-fsd-template).
 
 
 ## Setup
@@ -14,7 +16,7 @@ This repository is built based on (Next FSD template)[https://github.com/Konstan
 
 ## Architecture
 
-Used architecture is (FSD)[https://feature-sliced.design/docs/get-started/overview] because it is universal architecture which suits for huge enterprise projects same as for logicless landings.
+Used architecture is [FSD](https://feature-sliced.design/docs/get-started/overview) because it is universal architecture which suits for huge enterprise projects same as for logicless landings.
 
 ## Libs 
 
