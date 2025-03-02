@@ -1,0 +1,138 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": [
+    "tailwindcss",
+    "simple-import-sort",
+    "unused-imports",
+    "next-fsd",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["sibling", "parent"],
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@/shared/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/entities/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/features/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/widgets/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/pages-layer/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin", "external"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "react/display-name": "off",
+    "unused-imports/no-unused-imports": "error",
+    "id-length": ["error", {
+      "exceptionPatterns": ["E|S", "[x-z]", "_.*"],
+      "min": 2
+    }],
+    "next-fsd/path-checker": [
+      "error",
+      {
+        "alias": "@"
+      }
+    ],
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "if",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
+    ],
+    "next-fsd/layer-imports": [
+      "error",
+      {
+        "alias": "@",
+        "ignoreImportPatterns": [
+          "**/@x/**"
+        ],
+        "ignoreFilesPatterns": [
+          "**/middleware.ts",
+          "**/src/shared/config/**/*.(ts|tsx)",
+          "**/src/shared/api/**/*.(ts|tsx)"
+        ]
+      }
+    ],
+    "next-fsd/public-api-imports": [
+      "error",
+      {
+        "alias": "@",
+        "ignorePatterns": [
+          "**/src/shared/config/*.(ts|tsx)",
+          "**/src/shared/api/*.(ts|tsx)",
+          "**/middleware.ts"
+        ]
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": ["enumMember", "enum", "typeAlias", "typeParameter"],
+        "format": ["PascalCase"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.d.ts"
+      ],
+      "rules": {
+        "unused-imports/no-unused-imports": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  }
+}
