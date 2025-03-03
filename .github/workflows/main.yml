@@ -1,0 +1,27 @@
+name: GitHub Actions
+run-name: ${{ github.actor }} runs GitHub actions
+on: [push]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  lint-and-unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.13.1]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm ci
+      - name: linting types
+        run: npm run lint:types
+      - name: unit tests
+        run: npm run test
