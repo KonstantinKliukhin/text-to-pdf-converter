@@ -5,6 +5,9 @@ permissions:
   contents: write
   pages: write
   id-token: write
+env: 
+  NEXT_PUBLIC_APP_API_URL: ${{vars.NEXT_PUBLIC_APP_API_URL}}
+  NEXT_PUBLIC_API_KEY: ${{vars.NEXT_PUBLIC_API_KEY}}
 jobs:
   lint-and-unit:
     runs-on: ubuntu-latest
