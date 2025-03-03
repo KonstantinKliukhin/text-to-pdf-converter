@@ -5,7 +5,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
-env: 
+env:
   NEXT_PUBLIC_APP_API_URL: ${{ secrets.NEXT_PUBLIC_APP_API_URL }}
   NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
 jobs:
@@ -15,6 +15,10 @@ jobs:
       matrix:
         node-version: [22.13.1]
     steps:
+      - name: Set Secrets
+        run: |
+          echo "NEXT_PUBLIC_APP_API_URL=${{ secrets.NEXT_PUBLIC_APP_API_URL }}" >> .env.production
+          echo "NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }}" >> .env.production
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
